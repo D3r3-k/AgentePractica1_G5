@@ -7,29 +7,29 @@ DROP TABLE IF EXISTS geren2.metodo_pago CASCADE;
 DROP TABLE IF EXISTS geren2.navegador CASCADE;
 
 
-CREATE TABLE geren2.genero (
+CREATE TABLE IF NOT EXISTS geren2.genero (
   id_genero INT PRIMARY KEY,
   nombre VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE geren2.metodo_pago (
+CREATE TABLE IF NOT EXISTS geren2.metodo_pago (
   id_metodo_pago INT PRIMARY KEY,
   nombre VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE geren2.navegador (
+CREATE TABLE IF NOT EXISTS geren2.navegador (
   id_navegador INT PRIMARY KEY,
   nombre VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE geren2.cliente (
+CREATE TABLE IF NOT EXISTS geren2.cliente (
   id_cliente INT PRIMARY KEY,
   edad INT NOT NULL CHECK (edad >= 0 AND edad <= 120),
   id_genero INT NOT NULL,
   FOREIGN KEY (id_genero) REFERENCES geren2.genero(id_genero)
 );
 
-CREATE TABLE geren2.venta (
+CREATE TABLE IF NOT EXISTS geren2.venta (
   id_venta SERIAL PRIMARY KEY,
   id_cliente INT NOT NULL,
   venta_total DECIMAL(10,2) NOT NULL,
