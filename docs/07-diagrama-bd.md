@@ -1,3 +1,5 @@
 [ ← Regresar ](../README.md)
 
-# diagrama-bd
+# Diagrama ER
+
+![*[]()*](assets/07-diagrama-bd.svg)
