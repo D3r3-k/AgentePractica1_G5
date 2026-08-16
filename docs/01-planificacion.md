@@ -4,20 +4,20 @@
 
 ## Integrante 1 — Datos y Base de Datos
 
-- [ ] 1. Preparación de datos:
-  - [ ] a. Extraer los datos del archivo .csv.
-  - [ ] b. Verificar si hay valores faltantes o duplicados y decidir cómo manejarlos.
-  - [ ] c. Asegurarse de que los tipos de datos sean correctos para cada columna.
-  - [ ] d. Cargar los datos a una base de datos SQL en la nube.
-- [ ] 3.3 Requerimientos técnicos:
-  - [ ] a. Base de datos relacional implementada en la nube.
+- [x] 1. Preparación de datos:
+  - [x] a. Extraer los datos del archivo .csv.
+  - [x] b. Verificar si hay valores faltantes o duplicados y decidir cómo manejarlos.
+  - [x] c. Asegurarse de que los tipos de datos sean correctos para cada columna.
+  - [x] d. Cargar los datos a una base de datos SQL en la nube.
+- [x] 3.3 Requerimientos técnicos:
+  - [x] a. Base de datos relacional implementada en la nube.
 - [ ] 7. Conclusiones y recomendaciones:
   - [ ] a. Conclusión clave #1 (mín. 20 líneas).
   - [ ] b. Sugerir dos acciones concretas que la empresa podría tomar para mejorar sus ventas o la satisfacción del cliente.
 - [ ] 8. Preguntas de análisis:
   - [ ] a. ¿Cómo podrían los insights obtenidos ayudar a diferenciarse de la competencia?
 - [ ] 9. Entregables:
-  - [ ] a. Diagrama: Diagrama de la base de datos.
+  - [x] a. Diagrama: Diagrama de la base de datos.
   - [ ] b. Proceso de análisis: Describa el enfoque paso a paso que siguieron para limpiar y preparar los datos.
 
 ## Integrante 2 — MCPServer
