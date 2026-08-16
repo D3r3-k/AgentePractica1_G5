@@ -44,7 +44,8 @@ El detalle de tareas por integrante está en [`docs/01-planificacion.md`](docs/0
 
 ## Configuración
 
-> [!NOTE] Windows
+> [!NOTE] 
+> **Windows**
 
 ```bash
 git clone https://github.com/D3r3-k/AgentePractica1_G5.git
@@ -63,7 +64,8 @@ copy .env.example .env
 python db/conexion.py
 ```
 
-> [!NOTE] Linux
+> [!NOTE] 
+> **Linux**
 
 ```bash
 git clone https://github.com/D3r3-k/AgentePractica1_G5.git
@@ -82,7 +84,8 @@ cp .env.example .env
 python3 db/conexion.py
 ```
 
-> [!NOTE] Mac
+> [!NOTE] 
+> **Mac**
 
 ```bash
 git clone https://github.com/D3r3-k/AgentePractica1_G5.git
