@@ -38,6 +38,7 @@ El detalle de tareas por integrante está en [`docs/01-planificacion.md`](docs/0
 - [Recomendaciones](docs/05-recomendaciones.md)
 - [Respuestas](docs/06-respuestas.md)
 - [Diagrama de BD](docs/07-diagrama-bd.md)
+- [MCPServer](mcp_server/README.md)
 
 ---
 
@@ -61,7 +62,9 @@ pip install -r requirements.txt
 ```bash
 copy .env.example .env
 # Llenar .env con las credenciales
-python db/conexion.py
+python db/limpieza.py
+python db/carga.py
+python -m mcp_server.server
 ```
 
 > [!NOTE] 
@@ -81,7 +84,9 @@ pip install -r requirements.txt
 ```bash
 cp .env.example .env
 # Llenar .env con las credenciales
-python3 db/conexion.py
+python3 db/limpieza.py
+python3 db/carga.py
+python3 -m mcp_server.server
 ```
 
 > [!NOTE] 
@@ -101,6 +106,13 @@ pip install -r requirements.txt
 ```bash
 cp .env.example .env
 # Llenar .env con las credenciales
-python3 db/conexion.py
+python3 db/limpieza.py
+python3 db/carga.py
+python3 -m mcp_server.server
 ```
 
+## MCPServer
+
+El servidor MCP expone 12 herramientas de consulta para los puntos 2 al 6. Su documentación, contrato de respuestas, variables de entorno y pruebas se encuentra en [`mcp_server/README.md`](mcp_server/README.md).
+
+La integración y validación dentro del agente Google ADK queda pendiente del integrante 3.
