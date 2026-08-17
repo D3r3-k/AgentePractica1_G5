@@ -16,9 +16,9 @@
   - [ ] b. Sugerir dos acciones concretas que la empresa podría tomar para mejorar sus ventas o la satisfacción del cliente.
 - [ ] 8. Preguntas de análisis:
   - [ ] a. ¿Cómo podrían los insights obtenidos ayudar a diferenciarse de la competencia?
-- [ ] 9. Entregables:
+- [x] 9. Entregables:
   - [x] a. Diagrama: Diagrama de la base de datos.
-  - [ ] b. Proceso de análisis: Describa el enfoque paso a paso que siguieron para limpiar y preparar los datos.
+  - [x] b. Proceso de análisis: Describa el enfoque paso a paso que siguieron para limpiar y preparar los datos.
 
 ## Integrante 2 — MCPServer
 
