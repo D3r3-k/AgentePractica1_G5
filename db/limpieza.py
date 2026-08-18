@@ -15,7 +15,7 @@ def normalizar_decimal(valor):
     texto = str(valor).strip()
     if texto == "":
         return None
-    return texto.replace(".", "").replace(",", ".")
+    return texto.replace(",", ".")
 
 
 def validar_decimal(df, columnas):
@@ -33,6 +33,7 @@ def validar_decimal(df, columnas):
             print(df.loc[invalidos, [columna]].head())
 
         df[columna] = serie_numeric
+        print(f"Estadísticas '{columna}' -> Máx: {df[columna].max():.2f}, Media: {df[columna].mean():.2f}")
 
     return df
 
