@@ -1,0 +1,5 @@
+# Entorno del agente conversacional (.venv-agent)
+# Separado de requirements.txt de la raíz: google-adk exige mcp<2 y el
+# MCPServer del integrante 2 usa mcp 2.x.
+google-adk[mcp]>=2.7.0,<3.0.0
+python-dotenv>=1.0.0

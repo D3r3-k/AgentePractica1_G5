@@ -38,7 +38,11 @@ El detalle de tareas por integrante está en [`docs/01-planificacion.md`](docs/0
 - [Recomendaciones](docs/05-recomendaciones.md)
 - [Respuestas](docs/06-respuestas.md)
 - [Diagrama de BD](docs/07-diagrama-bd.md)
+- [Validación del agente](docs/08-validacion-agente.md)
+- [Aportes del integrante 3](docs/09-aportes-integrante3.md)
+- [Implementación del agente](docs/10-implementacion-agente.md)
 - [MCPServer](mcp_server/README.md)
+- [Agente conversacional](agente_adk/README.md)
 
 ---
 
@@ -115,4 +119,17 @@ python3 -m mcp_server.server
 
 El servidor MCP expone 12 herramientas de consulta para los puntos 2 al 6. Su documentación, contrato de respuestas, variables de entorno y pruebas se encuentra en [`mcp_server/README.md`](mcp_server/README.md).
 
-La integración y validación dentro del agente Google ADK queda pendiente del integrante 3.
+## Agente conversacional
+
+El agente Google ADK consume las 12 herramientas del MCPServer por `stdio` y responde en lenguaje natural los puntos 2 al 6. Su documentación e instrucciones de ejecución están en [`agente_adk/README.md`](agente_adk/README.md).
+
+El agente vive en un entorno virtual aparte (`.venv-agent`) porque `google-adk` requiere `mcp<2` y el MCPServer usa `mcp` 2.x:
+
+```bash
+python3 -m venv .venv-agent
+.venv-agent/bin/pip install -r agente_adk/requirements.txt
+.venv-agent/bin/python -m agente_adk.test_agente   # prueba de humo
+.venv-agent/bin/adk web                            # interfaz de chat
+```
+
+En Windows se sustituye `.venv-agent/bin/` por `.venv-agent\Scripts\`.

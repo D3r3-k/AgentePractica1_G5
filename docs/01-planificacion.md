@@ -22,9 +22,9 @@
 
 ## Integrante 2 — MCPServer
 
-- [ ] 3.3 Requerimientos técnicos:
+- [x] 3.3 Requerimientos técnicos:
   - [x] a. Crear el MCPServer y exponer las herramientas de análisis.
-  - [ ] b. Validar la integración del MCPServer con el agente conversacional de Google ADK (pendiente del integrante 3).
+  - [x] b. Validar la integración del MCPServer con el agente conversacional de Google ADK (las 12 herramientas responden al agente por `stdio`).
 - [ ] 7. Conclusiones y recomendaciones:
   - [x] a. Conclusión clave #2 (mín. 20 líneas).
   - [x] b. Sugerir dos acciones concretas que la empresa podría tomar para mejorar sus ventas o la satisfacción del cliente.
@@ -36,15 +36,18 @@
 
 ## Integrante 3 — Agente conversacional (Google ADK)
 
-- [ ] 3.3 Requerimientos técnicos:
-  - [ ] a. Google ADK para crear el agente de IA conversacional.
-  - [ ] b. Usar cualquier modelo de IA (GPT, Claude, Gemini, Llama, etc.). Consejo del enunciado: si usan Gemini, versiones Flash o Flash-lite.
-  - [ ] c. Los puntos del 2 al 6, el chat de IA debe ser capaz de entregar los resultados según se soliciten.
-- [ ] 7. Conclusiones y recomendaciones:
-  - [ ] a. Conclusión clave #3 (mín. 20 líneas).
-  - [ ] b. Sugerir dos acciones concretas que la empresa podría tomar para mejorar sus ventas o la satisfacción del cliente.
-- [ ] 8. Responder a las preguntas:
-  - [ ] c. ¿Cómo podría este análisis de datos ayudar a la empresa a ahorrar costos o mejorar la eficiencia operativa?
+- [x] 3.3 Requerimientos técnicos:
+  - [x] a. Google ADK para crear el agente de IA conversacional (`agente_adk/agent.py`).
+  - [x] b. Usar cualquier modelo de IA. Se usa `gemini-3.5-flash-lite`, validado con una llamada real.
+  - [x] c. Los puntos del 2 al 6, el chat de IA debe ser capaz de entregar los resultados según se soliciten (16/16 preguntas). Evidencia en [`08-validacion-agente.md`](08-validacion-agente.md).
+- [x] 7. Conclusiones y recomendaciones:
+  - [x] a. Conclusión clave #3 (mín. 20 líneas).
+  - [x] b. Sugerir dos acciones concretas que la empresa podría tomar para mejorar sus ventas o la satisfacción del cliente.
+- [x] 8. Responder a las preguntas:
+  - [x] c. ¿Cómo podría este análisis de datos ayudar a la empresa a ahorrar costos o mejorar la eficiencia operativa?
+- [ ] Entregables (sección 4):
+  - [x] a. Código: agente ADK, pruebas y validación automatizada.
+  - [x] b. Bitácora de implementación 
 
 ## Integrante 4 — Análisis exploratorio y de tendencias
 
