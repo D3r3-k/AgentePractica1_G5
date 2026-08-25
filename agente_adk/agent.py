@@ -11,6 +11,7 @@ from google.adk.agents import LlmAgent
 from google.adk.tools.mcp_tool.mcp_toolset import McpToolset, StdioConnectionParams
 from mcp import StdioServerParameters
 
+from .graficas import listar_graficas, mostrar_grafica
 from .prompt import INSTRUCCION_SISTEMA
 
 
@@ -88,5 +89,5 @@ root_agent = LlmAgent(
         "2021 consultando el MCPServer del grupo."
     ),
     instruction=INSTRUCCION_SISTEMA,
-    tools=[herramientas_analisis],
+    tools=[herramientas_analisis, listar_graficas, mostrar_grafica],
 )

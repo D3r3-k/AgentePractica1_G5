@@ -7,6 +7,7 @@ import os
 import sys
 
 from .agent import MODEL_NAME, herramientas_analisis, root_agent
+from .graficas import CATALOGO_GRAFICAS, DIRECTORIO_GRAFICAS
 
 
 HERRAMIENTAS_ESPERADAS = {
@@ -54,6 +55,35 @@ def _verificar_configuracion() -> list[str]:
     return fallos
 
 
+def _verificar_graficas() -> list[str]:
+    """Confirma que el agente tenga las herramientas del punto 6 y sus PNG."""
+    fallos = []
+
+    nombres_locales = {
+        getattr(herramienta, "__name__", "")
+        for herramienta in root_agent.tools
+        if callable(herramienta)
+    }
+    faltantes = {"listar_graficas", "mostrar_grafica"} - nombres_locales
+    if faltantes:
+        fallos.append(f"El agente no registró: {sorted(faltantes)}")
+
+    sin_archivo = [
+        info["archivo"]
+        for info in CATALOGO_GRAFICAS.values()
+        if not (DIRECTORIO_GRAFICAS / info["archivo"]).exists()
+    ]
+    if sin_archivo:
+        fallos.append(f"Faltan imágenes en graficas/: {sin_archivo}")
+
+    if not fallos:
+        print(
+            f"Herramientas de gráficas registradas y {len(CATALOGO_GRAFICAS)} "
+            "imágenes disponibles."
+        )
+    return fallos
+
+
 async def _verificar_herramientas() -> list[str]:
     fallos = []
     herramientas = await herramientas_analisis.get_tools()
@@ -79,6 +109,7 @@ async def _main() -> int:
     fallos = _verificar_configuracion()
     if not fallos:
         fallos += _verificar_modelo()
+    fallos += _verificar_graficas()
     fallos += await _verificar_herramientas()
 
     if fallos:
