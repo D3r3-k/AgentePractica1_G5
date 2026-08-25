@@ -21,6 +21,7 @@ env/
 .ipynb_checkpoints/
 
 # Salidas intermedias
+informe/SOG2-2S26_grupo5.html
 data/processed/
 *.parquet
 *.db
