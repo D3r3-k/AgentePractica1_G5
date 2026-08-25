@@ -38,11 +38,42 @@ El detalle de tareas por integrante está en [`docs/01-planificacion.md`](docs/0
 - [Recomendaciones](docs/05-recomendaciones.md)
 - [Respuestas](docs/06-respuestas.md)
 - [Diagrama de BD](docs/07-diagrama-bd.md)
-- [Validación del agente](docs/08-validacion-agente.md)
-- [Aportes del integrante 3](docs/09-aportes-integrante3.md)
-- [Implementación del agente](docs/10-implementacion-agente.md)
+- Validación del agente — `docs/08-validacion-agente.md` *(pendiente de subir)*
+- Aportes del integrante 3 — `docs/09-aportes-integrante3.md` *(pendiente de subir)*
+- Implementación del agente — `docs/10-implementacion-agente.md` *(pendiente de subir)*
+- [Segmentación y correlación](docs/11-segmentacion-correlacion.md)
+- [Análisis exploratorio y de tendencias](docs/12-exploratorio-tendencias.md)
 - [MCPServer](mcp_server/README.md)
 - [Agente conversacional](agente_adk/README.md)
+- [**Pendientes para cerrar la entrega**](PENDIENTES.md)
+
+---
+
+## Informe final
+
+El entregable `SOG2-2S26_grupo5.pdf` se genera consolidando la documentación de
+`docs/`, las nueve gráficas de `graficas/` y la salida de los scripts de análisis:
+
+```bash
+python informe/generar_pdf.py              # usa la salida ya capturada
+python informe/generar_pdf.py --refrescar  # vuelve a ejecutar los análisis
+```
+
+El script produce un HTML autocontenido y lo imprime a PDF con Chrome o Edge en modo
+headless. Las secciones que aún esperan el aporte de algún integrante aparecen
+marcadas dentro del PDF con un aviso que se retira solo al regenerarlo.
+
+---
+
+## Análisis
+
+```bash
+python analisis/exploratorio.py   # puntos 2 y 3 · gráficas 01 a 05
+python analisis/segmentacion.py   # puntos 4 y 5 · gráficas 06 a 09
+```
+
+Ambos scripts importan `mcp_server/queries.py`, de modo que el informe, el MCPServer y
+el agente conversacional devuelven por construcción las mismas cifras.
 
 ---
 

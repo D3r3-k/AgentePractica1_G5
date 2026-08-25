@@ -13,6 +13,10 @@
     - [3. Ventas por navegador / canal — gráfico de barras horizontales](#3-ventas-por-navegador--canal--gráfico-de-barras-horizontales)
     - [4. Distribución de ventas por boletín y vale — barras agrupadas](#4-distribución-de-ventas-por-boletín-y-vale--barras-agrupadas)
     - [5. Uso de boletines y vales por mes — barras agrupadas](#5-uso-de-boletines-y-vales-por-mes--barras-agrupadas)
+    - [6. Ticket promedio por rango de edad — gráfico de barras verticales](#6-ticket-promedio-por-rango-de-edad--gráfico-de-barras-verticales)
+    - [7. Método de pago por género — barras horizontales apiladas al 100 %](#7-método-de-pago-por-género--barras-horizontales-apiladas-al-100-)
+    - [8. Edad frente a total de la venta — gráfico de dispersión](#8-edad-frente-a-total-de-la-venta--gráfico-de-dispersión)
+    - [9. Boletín y vale frente al ticket — mapa de calor](#9-boletín-y-vale-frente-al-ticket--mapa-de-calor)
   - [Decisiones de diseño transversales](#decisiones-de-diseño-transversales)
   - [Visualizaciones descartadas](#visualizaciones-descartadas)
 
@@ -54,6 +58,15 @@ de consulta. Este bloque añadió dos consultas propias, que son las que el
 MCPServer no expone: el desglose mensual de boletines y vales (punto 3.d) y el
 cruce entre método de pago y canal de origen, necesario para separar el efectivo
 cobrado en caja del cobrado al momento de la entrega (punto 3.c).
+
+El bloque de segmentación y correlación sigue el mismo criterio en
+[`analisis/segmentacion.py`](../analisis/segmentacion.py), que produce las
+visualizaciones 6 a 9 y comparte paleta, formato de etiquetas y pie de fuente con el
+script anterior, de modo que las nueve gráficas se lean como un solo conjunto. Sus
+consultas propias son el desglose enriquecido por rango de edad y por género —el
+MCPServer entrega el ticket, pero no la penetración de boletín, vale y canal dentro
+de cada segmento—, el par (edad, venta_total) sin agregar que alimenta el diagrama
+de dispersión y la correlación de Spearman, que `corr()` de PostgreSQL no calcula.
 
 ## Selección de cada visualización
 
@@ -169,6 +182,104 @@ de mayor uso; las barras individualizan cada mes y facilitan esa lectura.
 La diferencia de escala entre ambas series se conserva a propósito: que los
 boletines dupliquen consistentemente a los vales es en sí mismo un hallazgo sobre
 la penetración de cada instrumento comercial.
+
+### 6. Ticket promedio por rango de edad — gráfico de barras verticales
+
+**Pregunta:** ¿gastan distinto los clientes según su edad? (punto 4.a)
+
+Se graficó el **ticket promedio** y no la facturación total del tramo. Es una
+distinción que cambia por completo la pregunta que responde el gráfico: la
+facturación total seguiría el tamaño de cada segmento y mostraría, trivialmente,
+que los tramos con más clientes venden más. El ticket promedio normaliza por
+tamaño y permite comparar comportamiento, que es lo que pide el punto.
+
+Aquí el eje vertical **sí arranca en cero**, al contrario que en la evolución
+mensual. La diferencia de criterio es deliberada: este gráfico compara magnitudes
+entre categorías independientes, y recortar la base convertiría una brecha real de
+Q20.21 en una montaña visual que sugeriría un hallazgo inexistente. Que las cinco
+barras se vean casi iguales **es** el hallazgo.
+
+Se añadió una línea horizontal punteada con el promedio general (Q206.24) como
+referencia: sin ella, el lector no tendría contra qué juzgar si un tramo está alto o
+bajo. Las cifras se rotularon **dentro** de cada barra y no encima, porque a la
+altura del extremo superior de las barras pasa justamente esa línea de referencia y
+las etiquetas se encimarían con ella. Se destacaron en verde el tramo de mayor
+ticket y en rojo el de menor, siguiendo la misma convención de color del resto del
+informe.
+
+### 7. Método de pago por género — barras horizontales apiladas al 100 %
+
+**Pregunta:** ¿pagan distinto hombres y mujeres? (puntos 4.b y 5.b)
+
+Los dos géneros tienen distinto número de compras (3,372 y 3,128), de modo que
+comparar cantidades absolutas induciría a error: el grupo más grande mostraría
+barras más largas en todos los métodos sin que eso signifique preferencia. Al
+normalizar cada género al 100 % de sus propias compras, ambos grupos se vuelven
+directamente comparables.
+
+Se eligieron barras **apiladas** y no agrupadas porque aquí las categorías sí son
+excluyentes —cada venta tiene un único método de pago— y su suma tiene significado:
+el 100 % de las compras del género. Es exactamente el caso contrario al de boletín y
+vale, donde una misma venta puede registrar ambos y por eso allí se usaron barras
+agrupadas.
+
+La orientación horizontal permite leer las dos franjas una encima de la otra, que es
+la comparación que interesa. El resultado es un gráfico visualmente monótono, y esa
+monotonía es el mensaje: la mayor brecha entre ambos géneros es de 2.2 puntos
+porcentuales. Un gráfico que muestra una no-diferencia debe verse como una
+no-diferencia.
+
+### 8. Edad frente a total de la venta — gráfico de dispersión
+
+**Pregunta:** ¿existe relación entre la edad del cliente y lo que gasta? (punto 5.a)
+
+Es el único gráfico del informe donde se representan las 6,500 observaciones
+individuales sin agregar. La dispersión es la forma canónica para dos variables
+continuas y la única que permite ver la **estructura** de la relación en lugar de su
+resumen: un coeficiente de −0.0252 es un número que hay que creer, mientras que una
+nube sin forma es una evidencia que se verifica de un vistazo.
+
+Con 6,500 puntos en un rango de 62 edades el solapamiento es inevitable, así que se
+aplicó transparencia (alfa 0.28) y se redujo el tamaño del marcador: la densidad de
+la banda inferior pasa a codificar cuántas ventas se concentran en montos bajos, lo
+que aporta información en vez de estorbar. Se añadió la recta de regresión —cuya
+pendiente de −Q0.48 por año se traduce en una línea visualmente plana— y una línea
+punteada con la venta promedio.
+
+Se decidió **no recortar los valores atípicos** pese a que las ventas por encima de
+Q1,500 estiran el eje y comprimen la nube principal. Eliminarlas habría producido un
+gráfico más bonito y menos honesto: esas ventas existen, y su dispersión a lo largo
+de todas las edades refuerza precisamente la conclusión de que la edad no predice el
+gasto.
+
+El recuadro con el coeficiente, el r² y la lectura («sin relación aprovechable») se
+incluyó dentro del área del gráfico para que la imagen sea autosuficiente al
+extraerla del informe.
+
+### 9. Boletín y vale frente al ticket — mapa de calor
+
+**Pregunta:** ¿cuál de los dos instrumentos comerciales mueve el gasto? (puntos 4.c y 5.c)
+
+El cruce de dos variables binarias produce exactamente cuatro celdas, y la pregunta
+no es cuánto vale cada una por separado sino **en qué dirección se produce la
+separación**. Un mapa de calor codifica el ticket promedio en intensidad de color y
+permite responder eso de inmediato: las dos celdas superiores son oscuras y las dos
+inferiores claras, es decir, la variación ocurre entre filas —boletín— y no entre
+columnas —vale—.
+
+Se descartaron barras agrupadas para las cuatro combinaciones. Habrían mostrado los
+mismos cuatro valores con mayor precisión de lectura, pero como una lista de cuatro
+categorías sueltas; el hecho de que se trata de una matriz de 2×2 y de que una
+dimensión domina sobre la otra se habría perdido. Es el caso en que la estructura
+del dato importa más que la precisión de la comparación, y por eso se aceptó el
+intercambio.
+
+Para compensar la conocida imprecisión del color como canal cuantitativo, cada celda
+lleva rotulado su ticket exacto y su número de compras, y se incluyó la barra de
+color con escala en quetzales. El color del texto se calcula según la intensidad del
+fondo para mantener el contraste legible en las cuatro celdas. Las líneas blancas de
+separación se agregaron para que las celdas se lean como categorías discretas y no
+como un gradiente continuo.
 
 ## Decisiones de diseño transversales
 
