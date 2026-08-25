@@ -2,6 +2,20 @@
 
 # respuestas
 
+## Pregunta 8.b: ¿Qué decisiones estratégicas podrían tomarse basándose en este análisis para aumentar las ventas y la satisfacción del cliente?
+
+Después de revisar los resultados, la primera decisión debería ser dejar de trabajar con informes aislados. Marketing, ventas y operaciones deben consultar la misma fuente y revisar periódicamente el comportamiento de las ventas. El MCPServer y el agente de Google ADK permiten hacer esa consulta en lenguaje natural, pero eso no significa que el sistema deba decidir por la empresa. Su función es entregar el dato a tiempo para que el equipo responsable pueda tomar decisiones y en base a eso realizar acciones.
+
+El calendario merece atención inmediata. Noviembre tuvo 493 operaciones y diciembre 577, así que conviene investigar con anticipación qué está provocando ese cambio y cómo distribuir mejor la demanda. No se trata de vender más en diciembre. Si el aumento se concentra en pocas semanas, también pueden crecer los tiempos de atención, las entregas fallidas y los reclamos. La decisión debe buscar más ventas sin trasladar el problema a la operación o a la experiencia del cliente.
+
+El grupo de 26 a 35 años acumuló el mayor total de ventas, Q413,843.40, y puede servir como punto de partida para una campaña de prueba. Sin embargo, la edad no predice el valor de una compra: la correlación con `Venta_total` fue de -0.025. Por eso la empresa debería usar ese segmento para comparar un mensaje o una oferta, no para asumir que todas las personas de ese rango comprarán más. Si la prueba funciona, se escala; si no, se detiene sin convertir una suposición en una estrategia permanente.
+
+En los pagos, la tarjeta de crédito concentró 3,827 operaciones, mientras que el efectivo todavía representó 1,207. Esto justifica mantener una experiencia de pago con tarjeta segura, rápida y fácil de entender, pero sin eliminar la alternativa que parte de los clientes todavía prefiere. En los canales, la tienda física tuvo el mayor volumen y el Navegador 1 registró el mayor promedio de venta. La estrategia puede conservar la operación presencial y concentrar las mejoras digitales en el canal que ya muestra mejor desempeño, sin descuidar los demás.
+
+Los boletines y los vales también deben probarse con control. Las compras que utilizaron ambos tuvieron un promedio de Q242.57, pero esa diferencia no demuestra que el incentivo haya causado el aumento. Antes de aumentar el presupuesto, la empresa debería registrar cada campaña, comparar grupos similares y medir ventas, margen, reclamos y satisfacción. El MCPServer puede facilitar ese seguimiento y mostrar rápidamente si una decisión está mejorando el resultado completo o solo una cifra aislada.
+
+Al final, lo mejor decisióIn estrategica sería establecer una revisión de 90 días en la que cada cambio tenga un responsable, una meta y una fecha de evaluación. De esa manera, la empresa puede aprovechar la rapidez del análisis sin perder el criterio humano. La tecnología ayuda a encontrar patrones y a comparar resultados; la empresa decide qué hacer con ellos, cuidando que aumentar las ventas no signifique cobrar más rápido a costa de atender peor.
+
 ## Pregunta 8.c: ¿Cómo podría este análisis de datos ayudar a la empresa a ahorrar costos o mejorar la eficiencia operativa?
 
 El análisis nos permite ahorrar dinero por dos lados distintos, y vale la pena verlos por separado porque impactan diferentes presupuestos:

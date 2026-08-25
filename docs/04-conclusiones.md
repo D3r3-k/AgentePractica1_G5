@@ -2,6 +2,22 @@
 
 # Conclusiones
 
+## Conclusión Clave 2: El MCPServer hace que la empresa deje de adivinar
+
+El MCPServer nos ayuda entender algo imporntate, donde la respuesta deja de depender de que una sola persona abra la base, recuerde una consulta y explique el resultado. El servidor convierte ese análisis en una capacidad que todo el equipo puede utilizar de la misma manera: conecta el agente con la base de datos y expone doce herramientas para consultar estadísticas, tendencias, segmentaciones y correlaciones.
+
+Antes de tener esta integración, una duda tan sencilla como saber cuál fue el mes con más ventas podía terminar en un proceso manual de personas. Alguien debía buscar la información, escribir o ejecutar una consulta, revisar que los filtros fueran correctos y después trasladar el resultado al resto del equipo. Cada paso abría la posibilidad de usar una versión diferente del cálculo, errores humunos, una consulta mal escrita etc... Con el MCPServer, el agente solicita la herramienta correspondiente y recibe datos estructurados. No inventa la cifra ni escribe una consulta improvisada para resolver cada conversación.
+
+Esta decisión también protege la información. Las consultas están definidas y revisadas dentro del código, trabajan en modo de solo lectura y entregan resultados con un formato consistente. Así se reduce el riesgo de que una pregunta mal formulada modifique la base o de que dos áreas de la empresa trabajen con números distintos. El objetivo no es esconder la complejidad de todo el análisis, sino dejarla resuelta en un lugar controlado para que la persona que toma la decisión pueda concentrarse en interpretarla.
+
+Los resultados del estudio muestran por qué esa rapidez sí tiene un valor práctico. El ticket promedio fue de Q206.24, la mediana fue de Q137.35, noviembre cerró con 493 operaciones y diciembre alcanzó 577. También se pudo identificar que la tarjeta de crédito concentró 3,827 operaciones y que la tienda física registró 3,523 ventas. Cuando estos datos están disponibles mediante una pregunta en lenguaje natural, ventas puede revisar el comportamiento de un mes, marketing puede comparar una campaña y operaciones puede anticipar una carga de trabajo sin esperar a que alguien reconstruya el análisis desde cero.
+
+La integración con Google ADK hace que la consulta sea más accesible, pero no elimina la responsabilidad del analista. El agente explica qué muestran los datos y qué no muestran, esos resultados pueden entregarse rápidamente, pero todavía necesitan una interpretación cuidadosa: una correlación baja no significa que el sistema haya encontrado una causa, y una diferencia entre grupos no basta para prometer que una campaña funcionará.
+
+Por eso el MCPServer no debe presentarse como un sustituto del analista ni como una herramienta que toma decisiones por la empresa. Su función es entregar una base común, rápida y reproducible para que las decisiones se tomen con evidencia. El equipo todavía debe definir qué acción conviene, revisar los límites del conjunto de datos y confirmar los resultados cuando se agreguen nuevas variables, como costos, campañas, productos o satisfacción del cliente.
+
+Por ello, el valor de esta infraestructura está en acortar la distancia entre una duda y una respuesta verificable. Si la empresa mantiene la base actualizada y el agente conserva estas reglas de consulta, el análisis deja de ser un documento que se revisa una sola vez y se convierte en una capacidad de uso diario. Esa es la diferencia entre tener datos almacenados y contar con una herramienta que realmente ayuda a decidir.
+
 ## Conclusión Clave 3: El newsletter es lo único que realmente mueve la aguja, y lo estamos desaprovechando
 
 Después de revisar las 6,500 ventas del año buscamos lo obvio primero, saber si conociendo la edad o el género de un cliente uno puede adivinar cuánto va a gastar. La respuesta corta es que no, y no por poco.

@@ -25,12 +25,12 @@
 - [x] 3.3 Requerimientos técnicos:
   - [x] a. Crear el MCPServer y exponer las herramientas de análisis.
   - [x] b. Validar la integración del MCPServer con el agente conversacional de Google ADK (las 12 herramientas responden al agente por `stdio`).
-- [ ] 7. Conclusiones y recomendaciones:
+- [x] 7. Conclusiones y recomendaciones:
   - [x] a. Conclusión clave #2 (mín. 20 líneas).
   - [x] b. Sugerir dos acciones concretas que la empresa podría tomar para mejorar sus ventas o la satisfacción del cliente.
-- [ ] 8. Responder a las preguntas:
+- [x] 8. Responder a las preguntas:
   - [x] b. ¿Qué decisiones estratégicas podrían tomarse basándose en este análisis para aumentar las ventas y la satisfacción del cliente?
-- [ ] Entregables (sección 4):
+- [x] Entregables (sección 4):
   - [x] a. Código: Código utilizado para su implementación.
   - [x] b. README y pruebas del MCPServer.
 
