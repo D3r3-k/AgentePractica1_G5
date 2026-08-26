@@ -17,6 +17,9 @@
     - [7. Método de pago por género — barras horizontales apiladas al 100 %](#7-método-de-pago-por-género--barras-horizontales-apiladas-al-100-)
     - [8. Edad frente a total de la venta — gráfico de dispersión](#8-edad-frente-a-total-de-la-venta--gráfico-de-dispersión)
     - [9. Boletín y vale frente al ticket — mapa de calor](#9-boletín-y-vale-frente-al-ticket--mapa-de-calor)
+    - [10. Distribución del total de la venta — histograma](#10-distribución-del-total-de-la-venta--histograma)
+    - [11. Total de la venta por rango de edad — diagrama de caja](#11-total-de-la-venta-por-rango-de-edad--diagrama-de-caja)
+    - [12. Composición del 63.9 % presencial — gráfico de cascada](#12-composición-del-639--presencial--gráfico-de-cascada)
   - [Decisiones de diseño transversales](#decisiones-de-diseño-transversales)
   - [Visualizaciones descartadas](#visualizaciones-descartadas)
 
@@ -62,7 +65,7 @@ cobrado en caja del cobrado al momento de la entrega (punto 3.c).
 El bloque de segmentación y correlación sigue el mismo criterio en
 [`analisis/segmentacion.py`](../analisis/segmentacion.py), que produce las
 visualizaciones 6 a 9 y comparte paleta, formato de etiquetas y pie de fuente con el
-script anterior, de modo que las nueve gráficas se lean como un solo conjunto. Sus
+script anterior, de modo que las doce gráficas se lean como un solo conjunto. Sus
 consultas propias son el desglose enriquecido por rango de edad y por género —el
 MCPServer entrega el ticket, pero no la penetración de boletín, vale y canal dentro
 de cada segmento—, el par (edad, venta_total) sin agregar que alimenta el diagrama
@@ -281,20 +284,111 @@ fondo para mantener el contraste legible en las cuatro celdas. Las líneas blanc
 separación se agregaron para que las celdas se lean como categorías discretas y no
 como un gradiente continuo.
 
+### 10. Distribución del total de la venta — histograma
+
+**Pregunta:** ¿cómo se reparten las ventas a lo largo de la escala de montos?
+(punto 2.b)
+
+Las medidas de tendencia central del punto 2.b se reportaban únicamente como tabla, y
+una tabla no permite ver la **forma** de una distribución. El histograma es la única
+representación que muestra dónde se acumulan los casos, y aquí ese reparto es el
+hallazgo: la media de Q206.24 supera a la mediana de Q137.35 en un 50 %, señal de una
+asimetría hacia la derecha que ninguna de las tres medidas comunica por sí sola.
+
+Se eligió una amplitud de clase de Q50 tras comparar alternativas. Intervalos más
+anchos borraban el escalón entre la clase modal (Q50-100, con 1,442 ventas) y sus
+vecinas; más estrechos fragmentaban la cola en barras de altura irrelevante y añadían
+ruido sin información.
+
+La decisión de diseño con más consecuencias fue **truncar el eje en Q800 y agrupar la
+cola en una clase abierta**. El máximo observado es de Q3,169, de modo que un eje
+completo dedicaría más de tres cuartas partes del ancho a barras casi invisibles y
+comprimiría contra el margen izquierdo la zona donde se concentra el 97.5 % de los
+casos. La clase agrupada se rotuló «800+», se dibujó con trama diagonal para que no se
+confunda con una clase regular de Q50 y lleva anotado su conteo exacto de 161 ventas.
+Es un recorte que se declara en el propio gráfico, no una omisión silenciosa.
+
+El color codifica la posición respecto de la media: las clases que quedan por debajo
+van en tono claro, las que quedan por encima en tono oscuro, y la clase que contiene
+la media se marca en gris por ser la única ambigua. Así el 66.4 % de ventas que no
+alcanza el promedio se lee como una superficie y no como un dato suelto. Media y
+mediana se trazaron como líneas verticales rotuladas, y la distancia entre ambas se
+anotó explícitamente, porque esa separación es justamente lo que el gráfico
+demuestra.
+
+### 11. Total de la venta por rango de edad — diagrama de caja
+
+**Pregunta:** ¿la edad separa a los clientes por su gasto, más allá del promedio?
+(puntos 4.a y 5.a)
+
+La visualización 6 ya compara el ticket promedio entre rangos de edad, pero un
+promedio admite una objeción razonable: puede ocultar distribuciones muy distintas.
+Dos grupos con la misma media pueden tener dispersiones opuestas. El diagrama de caja
+es la respuesta directa a esa objeción, porque muestra simultáneamente mediana,
+cuartiles y recorrido de cada segmento.
+
+Se escogió frente a un gráfico de violín o a histogramas superpuestos por una razón de
+lectura: con cinco categorías, las cajas alineadas permiten comparar posición y
+amplitud de un vistazo, mientras que cinco densidades superpuestas exigirían al lector
+distinguir curvas que aquí serían casi idénticas. Y la coincidencia es precisamente el
+mensaje.
+
+Igual que en el histograma, el eje vertical se recortó —en Q700— porque los valores
+atípicos llegan a Q3,169 y con el eje completo las cinco cajas quedarían aplastadas
+contra la base, anulando la comparación que da sentido al gráfico. Por el mismo motivo
+se omitieron los puntos atípicos individuales: el objeto de esta visualización es el
+cuerpo central de cada distribución, no sus extremos, que ya quedan cubiertos por el
+histograma anterior.
+
+Cada caja lleva rotulados sus tres cuartiles y, bajo el eje, el tamaño de su muestra,
+dato necesario para juzgar la estabilidad del tramo 56+ (346 clientes). Una línea
+horizontal con la mediana general sirve de referencia común, y el recuadro superior
+enuncia la conclusión que la imagen sostiene: las cinco distribuciones se solapan y
+solo Q21.55 separan a la mediana más alta de la más baja.
+
+### 12. Composición del 63.9 % presencial — gráfico de cascada
+
+**Pregunta:** ¿de dónde sale la cifra de ventas que exigen presencia física?
+(punto 3.c)
+
+Este hallazgo no proviene de una columna sino de un cruce entre dos: canal de origen y
+método de pago. Presentarlo como un total aislado obligaba al lector a aceptar el
+63.9 % por confianza. La cascada existe justamente para eso: hace visible la
+**aritmética** de un agregado, mostrando cómo cada componente se suma hasta el
+subtotal.
+
+Se descartó un gráfico circular, que habría mostrado las tres porciones pero no la
+operación que las combina, y unas barras apiladas simples, que habrían dado la suma
+sin distinguir el subtotal intermedio de sus sumandos. La cascada conserva ambas
+cosas: las dos primeras barras flotan sobre la base acumulada, la tercera reinicia en
+cero para señalar que es un subtotal, y la cuarta completa hasta el total del año.
+
+El color separa las funciones en lugar de decorar: azul oscuro para el canal
+presencial, rojo para el componente inferido —las 633 ventas en línea pagadas en
+efectivo, que es el dato que exige un supuesto—, verde para el subtotal y azul claro
+para el remanente puramente digital. Las líneas punteadas de conexión entre barras
+marcan la continuidad del acumulado, y una línea de referencia con el total de 6,500
+ventas cierra la escala.
+
+Cada barra lleva su valor absoluto y su porcentaje, y el recuadro enuncia el resultado
+en lenguaje llano. La visualización tiene además un valor de trazabilidad: al mostrar
+la cifra descompuesta, deja a la vista que 633 de las 4,156 transacciones dependen de
+una inferencia y no de un campo registrado, tal como se advierte en el punto 3.c.
+
 ## Decisiones de diseño transversales
 
-Se aplicaron los mismos criterios a las cinco visualizaciones para que el
+Se aplicaron los mismos criterios a las doce visualizaciones para que el
 informe se lea como un conjunto coherente:
 
 - **Paleta constante.** Un azul institucional para la serie principal, verde para
   los valores destacados en positivo y rojo para los mínimos. El color se usa
   siempre para codificar significado, nunca como adorno.
 - **Todo valor rotulado sobre el dato.** Sin excepción, cada barra y cada punto
-  de las cinco visualizaciones muestra su cifra exacta junto al elemento que la
+  de las doce visualizaciones muestra su cifra exacta junto al elemento que la
   representa, y en las distribuciones se añade el porcentaje sobre el total. El
   criterio es que ninguna conclusión dependa de que el lector estime una altura
   o una longitud contra el eje: el gráfico debe entregar el dato, no insinuarlo.
-- **Ejes siempre identificados.** Los cinco gráficos rotulan ambos ejes con la
+- **Ejes siempre identificados.** Los doce gráficos rotulan ambos ejes con la
   magnitud y su unidad («Total de ventas (quetzales)», «Cantidad de ventas»,
   «Mes»), y las series de las barras agrupadas se distinguen con leyenda.
 - **Eliminación de elementos no informativos.** Se retiraron los bordes superior
@@ -308,12 +402,25 @@ informe se lea como un conjunto coherente:
 
 ## Visualizaciones descartadas
 
-Se evaluaron y descartaron tres alternativas, por las razones siguientes:
+Se evaluaron y descartaron las alternativas siguientes:
 
 - **Gráfico circular para el método de pago.** La comparación de ángulos es menos
   precisa que la de longitudes; se prefirieron barras.
 - **Barras apiladas para boletín y vale.** Las dos categorías no son excluyentes,
   por lo que el total apilado carecería de interpretación.
-- **Histograma de montos de venta.** Aunque describe la distribución de la
-  variable, el punto 2.b ya queda cubierto con las medidas de tendencia central,
-  y la distribución por cliente corresponde al bloque de segmentación.
+- **Gráfico de violín para el gasto por rango de edad.** Habría mostrado la densidad
+  completa de cada segmento, pero con cinco distribuciones casi idénticas obligaría a
+  distinguir curvas superpuestas; el diagrama de caja comunica la misma coincidencia
+  con una lectura más directa.
+- **Barras apiladas simples para el 63.9 % presencial.** Entregan la suma pero no
+  distinguen el subtotal intermedio de sus componentes, que es justamente lo que la
+  cascada hace visible.
+
+Un caso merece mención aparte porque la decisión cambió durante el proyecto. El
+**histograma de montos de venta** se descartó en la primera ronda, con el argumento de
+que las medidas de tendencia central ya cubrían el punto 2.b. Al redactar el informe
+quedó claro que ese argumento era insuficiente: la media y la mediana señalan que
+existe asimetría, pero no permiten ver su magnitud ni dónde se acumulan las ventas, y
+sin esa imagen el lector no tiene forma de juzgar si el ticket promedio describe bien
+al negocio. El histograma se incorporó entonces como visualización 10 y es hoy el
+único gráfico que muestra la forma de la variable principal del conjunto de datos.

@@ -11,6 +11,8 @@
   - [x] d. Cargar los datos a una base de datos SQL en la nube.
 - [x] 3.3 Requerimientos técnicos:
   - [x] a. Base de datos relacional implementada en la nube.
+- [x] 6. Visualización de datos:
+  - [x] a. Aportar 3 gráficos de tipos no utilizados: histograma, diagrama de caja y gráfico de cascada (`analisis/distribuciones.py`).
 - [ ] 7. Conclusiones y recomendaciones:
   - [ ] a. Conclusión clave #1 (mín. 20 líneas).
   - [ ] b. Sugerir dos acciones concretas que la empresa podría tomar para mejorar sus ventas o la satisfacción del cliente.
@@ -118,11 +120,11 @@ entregable propio:
 
 | # | Integrante | Carné | Bloque | Puntos del alcance |
 | :---: | :--- | :---: | :--- | :--- |
-| 1 | Derek Francisco Orellana Ibáñez | 202001151 | Datos y base de datos | 1, diagrama, proceso de análisis |
+| 1 | Derek Francisco Orellana Ibáñez | 202001151 | Datos y base de datos | 1, diagrama, proceso de análisis, 3 gráficas |
 | 2 | Juan Esteban Chacón Trampe | 202300431 | MCPServer | 3.3, código y pruebas |
 | 3 | Daniel Andree Hernandez Flores | 202300512 | Agente conversacional (Google ADK) | 3.3, validación 2 al 6 |
-| 4 | Fátima Florisel Cerezo Paredes | 202300434 | Análisis exploratorio y de tendencias | 2, 3, metodología, 4 gráficas |
-| 5 | Valery Pamela Alarcon Ramos | 202300794 | Segmentación, correlación e informe final | 4, 5, 4 gráficas, consolidación del PDF |
+| 4 | Fátima Florisel Cerezo Paredes | 202300434 | Análisis exploratorio y de tendencias | 2, 3, metodología, 5 gráficas |
+| 5 | Valery Pamela Alarcon Ramos | 202300794 | Segmentación, correlación e informe final | 4, 5, 4 gráficas, consolidación del informe |
 
 Tres decisiones sobre este reparto merecen explicación:
 
@@ -134,13 +136,23 @@ módulo `mcp_server/queries.py` quedó como fuente única de consultas: los scri
 análisis lo importan en lugar de reescribir el SQL, de modo que el informe, el
 servidor y el agente devuelven por construcción las mismas cifras.
 
-**El punto 6 se repartió entre dos personas.** El enunciado pide un mínimo de siete
-gráficos. Se asignaron cuatro a la integrante 4 (distribuciones y tendencias) y tres
-como mínimo a la integrante 5 (segmentación y correlación); esta última aportó
-cuatro, con lo que el proyecto cierra con **nueve visualizaciones**. Como ambas
-trabajaban sobre el mismo entregable visual, se fijaron por adelantado la paleta, el
-formato de etiquetas y el pie de fuente, y esos criterios quedaron documentados en
-[`03-metodologia.md`](03-metodologia.md).
+**El punto 6 se repartió entre tres personas y hubo que reajustarlo.** El enunciado
+pide un mínimo de siete gráficos diferentes. El reparto inicial asignó cinco a la
+integrante 4 (distribuciones y tendencias) y un mínimo de tres a la integrante 5
+(segmentación y correlación), que aportó cuatro. Al revisar el requisito, el equipo
+concluyó que los siete gráficos exigidos debían ser **de tipos distintos entre sí**,
+criterio más estricto que el que se había aplicado. Se encargaron entonces tres
+visualizaciones adicionales al integrante 1 —histograma, diagrama de caja y gráfico de
+cascada—, cada una de un tipo aún no utilizado. El proyecto cierra con **doce
+visualizaciones**, y los tipos empleados son línea, barras verticales, barras
+horizontales, barras agrupadas, barras apiladas al 100 %, dispersión, mapa de calor,
+histograma, diagrama de caja y cascada.
+
+Como tres personas trabajaban sobre un mismo entregable visual, se fijaron por
+adelantado la paleta, el formato de etiquetas y el pie de fuente, y esos criterios
+quedaron documentados en [`03-metodologia.md`](03-metodologia.md) junto con la
+justificación de cada elección. Ese acuerdo previo fue lo que permitió incorporar las
+tres gráficas tardías sin que desentonaran con las nueve anteriores.
 
 **La integrante 5 no redacta conclusión propia.** El punto 7.a pide exactamente
 cuatro conclusiones clave y el equipo es de cinco personas. Se acordó que quien
@@ -154,11 +166,11 @@ enunciado las pide **por estudiante**.
 
 | Herramienta | Uso en el proyecto | Por qué se eligió |
 | :--- | :--- | :--- |
-| **PostgreSQL** (nube) | Base de datos relacional | El enunciado exige base relacional en la nube y penaliza con −20 % cada incumplimiento. Se prefirió a MySQL por `percentile_cont`, `mode()` y `corr()`, que resuelven en el motor la mediana, la moda y la correlación de Pearson del punto 5.a. |
+| **PostgreSQL** (nube) | Base de datos relacional | El enunciado exige base relacional en la nube y penaliza con −20 % cada incumplimiento. Se eligió PostgreSQL en lugar de MySQL porque trae de forma nativa `percentile_cont`, `mode()` y `corr()`, con las que el propio motor calcula la mediana y la moda del punto 2.b y la correlación de Pearson del 5.a. En MySQL habría que programar las tres a mano. |
 | **Python 3.10+** | Limpieza, carga, análisis y gráficas | Cumple el requisito de lenguaje de análisis y es el único ecosistema donde conviven `psycopg2`, `matplotlib` y el SDK de MCP sin puentes entre lenguajes. |
 | **pandas** | Limpieza y normalización del CSV | Resuelve en pocas líneas la normalización de nombres, la coerción de tipos y la detección de nulos y duplicados del punto 1.b y 1.c. |
 | **psycopg2** | Conexión a PostgreSQL | Controlador estándar. Se usó `psycopg2.sql` para componer identificadores de forma segura y `RealDictCursor` para recibir filas como diccionarios. |
-| **matplotlib** | Las nueve visualizaciones | Da control fino sobre la posición de cada etiqueta, que era necesario para cumplir el criterio de rotular todos los valores sin superposiciones. Se descartó Seaborn: aporta estética por defecto pero menos control, y aquí el diseño estaba definido de antemano. |
+| **matplotlib** | Las doce visualizaciones | Da control fino sobre la posición de cada etiqueta, que era necesario para cumplir el criterio de rotular todos los valores sin superposiciones. Se descartó Seaborn: aporta estética por defecto pero menos control, y aquí el diseño estaba definido de antemano. |
 | **MCP (Model Context Protocol)** | Servidor de doce herramientas | Requisito explícito del enunciado. Se eligió transporte `stdio` porque el agente levanta el servidor como subproceso y no hace falta exponer un puerto. |
 | **Google ADK + Gemini Flash-Lite** | Agente conversacional | Requisito del enunciado; el propio documento recomienda las versiones Flash o Flash-Lite por velocidad y uso gratuito dentro de sus límites. |
 | **Git y GitHub** | Control de versiones | Plataforma indicada en la sección 5. Se trabajó con ramas por integrante (`feat/<carné>/<tema>`) sobre `develop`, con revisión por *pull request* antes de integrar. |
