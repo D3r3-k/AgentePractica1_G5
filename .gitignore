@@ -1,0 +1,38 @@
+# === CREDENCIALES: nunca commitear ===
+.env
+.env.local
+*.pem
+*.key
+credentials.json
+service-account*.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.venv-agent/
+venv/
+env/
+.Python
+*.egg-info/
+
+# Notebooks (no compartidos por decisión del equipo)
+*.ipynb
+.ipynb_checkpoints/
+
+# Salidas intermedias
+informe/SOG2-2S26_grupo5.html
+data/processed/
+*.parquet
+*.db
+*.sqlite3
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
