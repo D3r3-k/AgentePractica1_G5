@@ -174,7 +174,7 @@ enunciado las pide **por estudiante**.
 | **MCP (Model Context Protocol)** | Servidor de doce herramientas | Requisito explícito del enunciado. Se eligió transporte `stdio` porque el agente levanta el servidor como subproceso y no hace falta exponer un puerto. |
 | **Google ADK + Gemini Flash-Lite** | Agente conversacional | Requisito del enunciado; el propio documento recomienda las versiones Flash o Flash-Lite por velocidad y uso gratuito dentro de sus límites. |
 | **Git y GitHub** | Control de versiones | Plataforma indicada en la sección 5. Se trabajó con ramas por integrante (`feat/<carné>/<tema>`) sobre `develop`, con revisión por *pull request* antes de integrar. |
-| **Markdown → HTML → PDF** | Informe final | La documentación vive versionada en Markdown junto al código; el PDF se genera desde una plantilla HTML propia con Chromium en modo headless. Evita el paso manual por procesador de texto y permite regenerar el entregable con un comando cuando cambia una cifra. |
+| **Markdown y Microsoft Word** | Documentación e informe final | La documentación técnica vive versionada en Markdown junto al código, de modo que cada cambio queda registrado en Git y es revisable por el equipo. El informe final se redactó y maquetó en Word, que resuelve mejor la portada, el índice automático y la numeración de páginas que exige un documento presentable. |
 
 Dos decisiones técnicas se tomaron por restricción y conviene dejarlas registradas.
 La primera es que el agente vive en un entorno virtual separado (`.venv-agent`),
