@@ -1,0 +1,114 @@
+Análisis exploratorio y de tendencias · ventas 2021
+
+==============================================================================
+2.b  ESTADÍSTICAS BÁSICAS DE LAS VARIABLES NUMÉRICAS
+==============================================================================
+Variable                   Media         Mediana            Moda
+------------------------------------------------------------------------------
+edad                       36.31           36.00           18.00
+venta_total               206.24          137.35           98.00
+num_compra                  5.09            4.00            2.00
+monto_compra               39.79           35.77           28.32
+tiempo                    767.38          768.00          852.00
+
+==============================================================================
+2.c  DISTRIBUCIÓN DE VENTAS POR MES (2021)
+==============================================================================
+Mes               Ventas             Total        Promedio
+------------------------------------------------------------------------------
+Enero                520       Q106,059.70         Q203.96
+Febrero              545       Q108,962.10         Q199.93
+Marzo                569       Q116,168.00         Q204.16
+Abril                557       Q116,737.70         Q209.58
+Mayo                 530       Q112,533.80         Q212.33
+Junio                543       Q112,153.90         Q206.54
+Julio                565       Q113,645.10         Q201.14
+Agosto               530       Q105,665.00         Q199.37
+Septiembre           508       Q109,666.70         Q215.88
+Octubre              563       Q115,559.60         Q205.26
+Noviembre            493        Q99,385.50         Q201.59
+Diciembre            577       Q124,038.70         Q214.97
+
+==============================================================================
+2.c  DISTRIBUCIÓN DE VENTAS POR MÉTODO DE PAGO
+==============================================================================
+Método                  Ventas        %             Total        Promedio
+------------------------------------------------------------------------------
+Tarjeta Crédito          3,827    58.9%       Q786,772.50         Q205.58
+Tarjeta Débito           1,466    22.6%       Q309,301.80         Q210.98
+Efectivo                 1,207    18.6%       Q244,501.50         Q202.57
+
+==============================================================================
+2.c  DISTRIBUCIÓN DE VENTAS POR NAVEGADOR / CANAL
+==============================================================================
+Canal                   Ventas        %             Total        Promedio
+------------------------------------------------------------------------------
+Tienda Física            3,523    54.2%       Q719,298.50         Q204.17
+Navegador 1              1,273    19.6%       Q276,221.80         Q216.98
+Navegador 2                847    13.0%       Q175,415.60         Q207.10
+Navegador 3                660    10.2%       Q132,472.20         Q200.72
+Navegador 4                197     3.0%        Q37,167.70         Q188.67
+
+==============================================================================
+2.c  DISTRIBUCIÓN DE VENTAS POR BOLETÍN Y VALE
+==============================================================================
+Boletín   Vale          Ventas        %          Promedio
+------------------------------------------------------------------------------
+No        No             3,136    48.2%           Q183.33
+No        Sí               443     6.8%           Q170.66
+Sí        No             2,110    32.5%           Q233.80
+Sí        Sí               811    12.5%           Q242.57
+
+==============================================================================
+3.a  MESES CON MAYORES Y MENORES VENTAS (2021)
+==============================================================================
+MAYORES ventas    Diciembre      577 ventas   Q124,038.70
+MENORES ventas    Noviembre      493 ventas   Q99,385.50
+
+==============================================================================
+3.b  NAVEGADOR MÁS PREFERIDO Y MENOS POPULAR
+==============================================================================
+Canal más usado en general : Tienda Física (3,523 ventas, 54.2%)
+Navegador más preferido    : Navegador 1 (1,273 ventas, 19.6%)
+Navegador menos popular    : Navegador 4 (197 ventas, 3.0%)
+
+==============================================================================
+3.c  VENTAS PAGADAS CONTRA ENTREGA O EN EFECTIVO
+==============================================================================
+RESPUESTA (criterio del auxiliar: MetodoPago = 0 cuenta como efectivo y como contra entrega)
+  Ventas contra entrega o en efectivo : 1,207 de 6,500 (18.6%)
+  Monto acumulado                     : Q244,501.50 de Q1,340,575.80 (18.2%)
+
+DETALLE COMPLEMENTARIO — dónde se cobró ese efectivo
+  Originado en navegador (cobro en la entrega) : 633 ventas (52.4% del efectivo)   Q129,138.10
+  Originado en tienda física (cobro en caja)   : 574 ventas (47.6% del efectivo)   Q115,363.40
+
+==============================================================================
+3.d  USO DE BOLETINES Y VALES POR MES (2021)
+==============================================================================
+Mes               Ventas   Boletines       %     Vales       %
+------------------------------------------------------------------------------
+Enero                520         241   46.3%       100   19.2%
+Febrero              545         259   47.5%        91   16.7%
+Marzo                569         261   45.9%       133   23.4%
+Abril                557         239   42.9%        88   15.8%
+Mayo                 530         251   47.4%        97   18.3%
+Junio                543         228   42.0%       102   18.8%
+Julio                565         236   41.8%        96   17.0%
+Agosto               530         251   47.4%       102   19.2%
+Septiembre           508         200   39.4%       120   23.6%
+Octubre              563         260   46.2%        85   15.1%
+Noviembre            493         233   47.3%       112   22.7%
+Diciembre            577         262   45.4%       128   22.2%
+
+Mes con más boletines : Diciembre (262)
+Mes con más vales     : Marzo (133)
+
+==============================================================================
+6.  GENERACIÓN DE GRÁFICAS
+==============================================================================
+  guardada: graficas\01-ventas-por-mes.png
+  guardada: graficas\02-metodo-pago.png
+  guardada: graficas\03-navegador.png
+  guardada: graficas\04-boletin-vale.png
+  guardada: graficas\05-boletin-vale-mensual.png

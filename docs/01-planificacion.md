@@ -174,7 +174,7 @@ enunciado las pide **por estudiante**.
 | **MCP (Model Context Protocol)** | Servidor de doce herramientas | Requisito explícito del enunciado. Se eligió transporte `stdio` porque el agente levanta el servidor como subproceso y no hace falta exponer un puerto. |
 | **Google ADK + Gemini Flash-Lite** | Agente conversacional | Requisito del enunciado; el propio documento recomienda las versiones Flash o Flash-Lite por velocidad y uso gratuito dentro de sus límites. |
 | **Git y GitHub** | Control de versiones | Plataforma indicada en la sección 5. Se trabajó con ramas por integrante (`feat/<carné>/<tema>`) sobre `develop`, con revisión por *pull request* antes de integrar. |
-| **Markdown → HTML → PDF** | Informe final | La documentación vive versionada en Markdown junto al código; el PDF se genera desde una plantilla HTML propia con Chromium en modo headless. Evita el paso manual por procesador de texto y permite regenerar el entregable con un comando cuando cambia una cifra. |
+| **Markdown y Microsoft Word** | Documentación e informe final | La documentación técnica vive versionada en Markdown junto al código, de modo que cada cambio queda registrado en Git y es revisable por el equipo. El informe final se redactó y maquetó en Word, que resuelve mejor la portada, el índice automático y la numeración de páginas que exige un documento presentable. |
 
 Dos decisiones técnicas se tomaron por restricción y conviene dejarlas registradas.
 La primera es que el agente vive en un entorno virtual separado (`.venv-agent`),
@@ -201,3 +201,22 @@ es de 20 horas, que se distribuyeron en cinco fases sobre una semana.
 | 3. Agente y análisis exploratorio | 17 ago | Integrantes 3 y 4 | Agente responde los puntos 2 al 6; 5 gráficas generadas |
 | 4. Segmentación y correlación | 18 y 19 ago | Integrante 5 | Puntos 4 y 5 resueltos; 4 gráficas generadas |
 | 5. Consolidación del informe | 19 ago | Integrante 5 | PDF `SOG2-2S26_grupo5.pdf` armado y revisado |
+
+Las fases 2, 3 y 4 pudieron solaparse parcialmente gracias al contrato de respuesta
+acordado de antemano: mientras el integrante 2 terminaba las últimas herramientas, el
+3 ya integraba el agente contra las primeras y la 5 trabajaba directamente sobre
+`queries.py`.
+
+**Un desfase real y cómo se manejó.** Durante la fase 3 se detectó un error en la
+limpieza de datos que alteraba el total de ventas por mes. Corregirlo obligó a
+recargar la base y a regenerar las gráficas ya producidas (*commits* `7d00259` y
+`fab64c6`). El costo fue bajo porque las gráficas se generan por script y ninguna se
+había editado a mano: bastó volver a ejecutar el análisis. Esa fue justamente la razón
+por la que se decidió desde el inicio no retocar imágenes manualmente, y el incidente
+confirmó la decisión.
+
+**Reserva final.** Se dejó deliberadamente la consolidación del PDF como última fase
+y con holgura, porque es la única que depende de que **todos** los bloques estén
+cerrados. Los pendientes que la integrante 5 detectó al consolidar están registrados
+en [`PENDIENTES.md`](../informe/PENDIENTES.md) con su responsable, de modo que el cierre no
+dependa de la memoria de nadie.

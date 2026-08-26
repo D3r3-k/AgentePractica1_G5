@@ -1,0 +1,121 @@
+Segmentación de clientes y análisis de correlación · ventas 2021
+
+==============================================================================
+4.a  SEGMENTACIÓN DE CLIENTES POR RANGO DE EDAD
+==============================================================================
+Rango      Clientes       %   Ticket prom.      Mediana   Boletín     Vale
+------------------------------------------------------------------------------
+18-25         1,249   19.2%        Q207.82      Q136.50     40.6%    17.1%
+26-35         1,946   29.9%        Q212.66      Q145.30     48.2%    20.3%
+36-45         1,946   29.9%        Q204.70      Q136.45     48.9%    20.4%
+46-55         1,013   15.6%        Q199.63      Q132.90     37.6%    17.4%
+56+             346    5.3%        Q192.46      Q123.75     41.3%    20.8%
+
+Ticket más alto : 26-35   Q212.66
+Ticket más bajo : 56+     Q192.46
+Brecha entre extremos: Q20.21 (10.5% sobre el rango más bajo)
+Facturación total segmentada: Q1,340,575.80 · 6,500 clientes
+
+==============================================================================
+4.b  COMPORTAMIENTO DE COMPRA POR GÉNERO
+==============================================================================
+Género        Compras   Ticket prom.     Mediana  Edad prom.   Boletín    Vale
+------------------------------------------------------------------------------
+Masculino       3,372        Q204.46     Q137.30       36.4     44.6%   19.0%
+Femenino        3,128        Q208.16     Q137.60       36.2     45.3%   19.6%
+
+Reparto del método de pago dentro de cada género (%)
+Género                Efectivo   Tarjeta Crédito    Tarjeta Débito
+------------------------------------------------------------------------------
+Femenino                 19.4%             57.7%             22.9%
+Masculino                17.8%             59.9%             22.2%
+
+Diferencia de ticket entre géneros : Q3.70 (1.8%)
+Mayor brecha en método de pago     : 2.2 puntos porcentuales
+
+==============================================================================
+4.c  SEGMENTACIÓN POR BOLETÍN Y VALE
+==============================================================================
+Boletín   Vale       Compras       %   Ticket prom.     Facturación   % fact.
+------------------------------------------------------------------------------
+No        No           3,136   48.2%        Q183.33     Q574,926.40     42.9%
+No        Sí             443    6.8%        Q170.66      Q75,601.00      5.6%
+Sí        No           2,110   32.5%        Q233.80     Q493,322.70     36.8%
+Sí        Sí             811   12.5%        Q242.57     Q196,725.70     14.7%
+
+Efecto de cada instrumento por separado
+Grupo                        Compras    Ticket prom.
+------------------------------------------------------------------------------
+Con boletín                    2,921         Q236.24
+Sin boletín                    3,579         Q181.76
+Con vale                       1,254         Q217.17
+Sin vale                       5,246         Q203.63
+
+Diferencia por boletín : Q54.47 (+30.0%)
+
+Efecto del vale controlando por boletín (evita la paradoja de Simpson)
+  Boletín = No  → con vale Q170.66 vs sin vale Q183.33   Q-12.67 (-6.9%)
+  Boletín = Sí  → con vale Q242.57 vs sin vale Q233.80   Q8.77 (+3.8%)
+
+==============================================================================
+5.a  CORRELACIÓN ENTRE TOTAL DE LA VENTA Y EDAD DEL CLIENTE
+==============================================================================
+Tamaño de muestra           : 6,500 observaciones
+Correlación de Pearson (r)  : -0.0252
+Correlación de Spearman     : -0.0298
+Varianza explicada (r²)     : 0.064% del gasto
+Contraste H0: r = 0         : p = 0.04189 → significativa (p < 0.05)
+Interpretación              : La relación lineal es prácticamente nula y negativa; correlación no implica causalidad.
+
+Lectura: el contraste rechaza por poco la hipótesis de correlación cero,
+pero r² muestra que la edad explica una fracción despreciable del gasto.
+Con 6,500 observaciones incluso una desviación mínima respecto de cero
+resulta significativa: el hallazgo es estadísticamente detectable y a la
+vez irrelevante para la operación.
+
+==============================================================================
+5.b  ASOCIACIÓN ENTRE GÉNERO Y MÉTODO DE PAGO
+==============================================================================
+Tabla de contingencia (cantidad de ventas)
+Género                Efectivo   Tarjeta Crédito    Tarjeta Débito
+------------------------------------------------------------------------------
+Femenino                   606             1,806               716
+Masculino                  601             2,021               750
+
+Chi-cuadrado          : 3.7338 (2 grados de libertad)
+V de Cramér           : 0.0240
+Contraste de independencia : p = 0.1546 → NO significativa (p ≥ 0.05)
+Interpretación        : La asociación entre las variables es muy débil; asociación no implica causalidad.
+
+Lectura: no se rechaza la independencia. Género y método de pago se
+comportan como variables no relacionadas en este conjunto de datos.
+
+==============================================================================
+5.c  ASOCIACIÓN ENTRE EL USO DE BOLETINES Y VALES
+==============================================================================
+Tabla de contingencia (cantidad de ventas)
+                   Vale = Sí     Vale = No       Total
+------------------------------------------------------------------------------
+Boletín = Sí             811         2,110       2,921
+Boletín = No             443         3,136       3,579
+
+Chi-cuadrado          : 244.5525 (1 grado de libertad)
+V de Cramér           : 0.1940
+Contraste de independencia : p = 4e-55 → significativa (p < 0.05)
+Interpretación        : La asociación entre las variables es débil; asociación no implica causalidad.
+
+Tasa de uso de vale entre suscritos al boletín    : 27.8%
+Tasa de uso de vale entre NO suscritos al boletín : 12.4%
+Razón de tasas: los suscritos usan vale 2.24 veces más.
+
+Lectura: es la única asociación de este bloque que resulta significativa.
+El vale no se distribuye de forma pareja: se concentra en quienes ya
+reciben el boletín, que es el canal por el que se entrega.
+
+==============================================================================
+6.  GENERACIÓN DE GRÁFICAS
+==============================================================================
+  guardada: graficas\06-segmentacion-edad.png
+  guardada: graficas\07-genero-metodo-pago.png
+  guardada: graficas\08-dispersion-edad-venta.png
+  guardada: graficas\09-boletin-vale-ticket.png

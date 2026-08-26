@@ -38,38 +38,39 @@ El detalle de tareas por integrante está en [`docs/01-planificacion.md`](docs/0
 - [Recomendaciones](docs/05-recomendaciones.md)
 - [Respuestas](docs/06-respuestas.md)
 - [Diagrama de BD](docs/07-diagrama-bd.md)
-- Validación del agente — `docs/08-validacion-agente.md` *(pendiente de subir)*
-- Aportes del integrante 3 — `docs/09-aportes-integrante3.md` *(pendiente de subir)*
-- Implementación del agente — `docs/10-implementacion-agente.md` *(pendiente de subir)*
 - [Segmentación y correlación](docs/11-segmentacion-correlacion.md)
 - [Análisis exploratorio y de tendencias](docs/12-exploratorio-tendencias.md)
 - [MCPServer](mcp_server/README.md)
 - [Agente conversacional](agente_adk/README.md)
-- [**Pendientes para cerrar la entrega**](PENDIENTES.md)
 
 ---
 
 ## Informe final
 
-El entregable `SOG2-2S26_grupo5.pdf` se genera consolidando la documentación de
-`docs/`, las nueve gráficas de `graficas/` y la salida de los scripts de análisis:
+El entregable es `informe/SOG2-2S26_grupo5.pdf`, redactado y maquetado en Word a
+partir de la documentación de [`docs/`](docs/), las doce gráficas de
+[`graficas/`](graficas/) y la salida de los scripts de análisis, que se conserva en
+`informe/salidas-consola/`.
 
-```bash
-python informe/generar_pdf.py              # usa la salida ya capturada
-python informe/generar_pdf.py --refrescar  # vuelve a ejecutar los análisis
-```
+| Archivo | Contenido |
+| :--- | :--- |
+| `SOG2-2S26_grupo5.pdf` | El entregable, exportado desde Word |
+| `informe final.docx` | El documento editable del que sale el PDF |
+| `PENDIENTES.md` | Control de lo que falta por integrante |
+| `salidas-consola/` | Salida de los scripts, reproducida en el capítulo «Resultados detallados» |
 
-El script produce un HTML autocontenido y lo imprime a PDF con Chrome o Edge en modo
-headless. Las secciones que aún esperan el aporte de algún integrante aparecen
-marcadas dentro del PDF con un aviso que se retira solo al regenerarlo.
+Toda cifra del informe procede de una consulta ejecutada contra PostgreSQL. Ninguna
+se transcribió a mano y ninguna gráfica se editó con un programa de diseño: se
+regeneran ejecutando los scripts de análisis.
 
 ---
 
 ## Análisis
 
 ```bash
-python analisis/exploratorio.py   # puntos 2 y 3 · gráficas 01 a 05
-python analisis/segmentacion.py   # puntos 4 y 5 · gráficas 06 a 09
+python analisis/exploratorio.py    # puntos 2 y 3 · gráficas 01 a 05
+python analisis/segmentacion.py    # puntos 4 y 5 · gráficas 06 a 09
+python analisis/distribuciones.py  # gráficas 10 a 12
 ```
 
 Ambos scripts importan `mcp_server/queries.py`, de modo que el informe, el MCPServer y
