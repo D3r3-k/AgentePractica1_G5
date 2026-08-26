@@ -65,6 +65,10 @@ CASOS: tuple[tuple[str, str, str], ...] = (
      "obtener_correlacion_boletin_vale"),
     ("6", "Dame los datos que necesito para graficar las ventas por mes.",
      "obtener_ventas_por_mes"),
+    ("6", "Muéstrame la gráfica de la evolución mensual de las ventas.",
+     "mostrar_grafica"),
+    ("6", "¿Qué gráficas del análisis puedes mostrarme?",
+     "listar_graficas"),
 )
 
 
@@ -156,7 +160,7 @@ async def _main() -> int:
     if fallidos:
         print(f"Preguntas sin validar: {fallidos}")
         return 1
-    print("Las 16 preguntas se respondieron con la herramienta esperada.")
+    print(f"Las {len(CASOS)} preguntas se respondieron con la herramienta esperada.")
     return 0
 
 

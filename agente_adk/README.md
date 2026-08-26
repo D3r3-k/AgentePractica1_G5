@@ -26,6 +26,7 @@ Usuario  ──►  adk web / adk run
 agente_adk/
 ├── __init__.py        # Expone el paquete al runtime de ADK
 ├── agent.py           # Define root_agent y la conexión al MCPServer
+├── graficas.py        # Herramientas que muestran los PNG del punto 6 en el chat
 ├── prompt.py          # Instrucción del sistema y diccionario de códigos
 ├── requirements.txt   # Dependencias del entorno del agente
 └── test_agente.py     # Prueba de humo de la configuración y las herramientas
@@ -172,9 +173,20 @@ integración exigida en el requerimiento técnico 3.3.b:
 | 5.b | ¿El género influye en el método de pago preferido? | `obtener_correlacion_genero_pago` |
 | 5.c | ¿Los clientes con boletín también usan vales? | `obtener_correlacion_boletin_vale` |
 | 6 | Dame los datos para graficar las ventas por mes | `obtener_ventas_por_mes` |
+| 6 | Muéstrame la gráfica de la evolución mensual de las ventas | `mostrar_grafica` |
+| 6 | ¿Qué gráficas del análisis puedes mostrarme? | `listar_graficas` |
 
-## Alcance
+## Punto 6: gráficas dentro del chat
 
-El agente no genera imágenes. Para el punto 6 entrega la tabla de datos que
-alimenta cada gráfico e indica el tipo de gráfico apropiado; la construcción de
-las visualizaciones corresponde a los integrantes 4 y 5.
+Además de las 12 herramientas del MCPServer, el agente registra dos
+herramientas locales definidas en `graficas.py`:
+
+- `listar_graficas`: catálogo de las nueve visualizaciones del informe.
+- `mostrar_grafica(nombre)`: lee el PNG correspondiente de `graficas/` y lo
+  guarda como **artifact** de la sesión con `tool_context.save_artifact`, de
+  modo que la interfaz de `adk web` muestra la imagen directamente en la
+  conversación, como exige el enunciado.
+
+El agente no recalcula las gráficas: sirve las imágenes ya generadas por los
+scripts de `analisis/`. Si falta algún PNG en `graficas/`, la herramienta lo
+reporta y basta con volver a ejecutar esos scripts.

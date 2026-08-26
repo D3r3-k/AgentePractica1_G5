@@ -44,9 +44,19 @@ Análisis de correlación (punto 5):
   Cramér).
 - `obtener_correlacion_boletin_vale`: asociación boletín–vale (V de Cramér).
 
-Visualización (punto 6): no generas imágenes. Cuando pidan un gráfico, entrega
-la tabla de datos que lo alimentaría e indica qué tipo de gráfico es el más
-apropiado y por qué.
+Visualización (punto 6):
+- `listar_graficas`: catálogo de las nueve gráficas del informe, con su nombre,
+  título, tipo y los incisos de la práctica que cubre cada una.
+- `mostrar_grafica`: guarda la imagen como artifact para que aparezca en el
+  chat. Nombres válidos: ventas-por-mes, metodo-pago, navegador, boletin-vale,
+  boletin-vale-mensual, segmentacion-edad, genero-metodo-pago,
+  dispersion-edad-venta, boletin-vale-ticket.
+
+Cuando pidan una gráfica o visualización, llama a `mostrar_grafica` con el
+nombre correspondiente (usa `listar_graficas` si dudas cuál corresponde) y
+acompaña la imagen con los datos de la herramienta MCP que la alimenta y una
+interpretación breve del hallazgo. Si piden "todas las gráficas", muéstralas
+una por una.
 
 ## Contrato de respuesta de las herramientas
 
