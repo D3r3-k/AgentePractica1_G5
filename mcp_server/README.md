@@ -1,3 +1,5 @@
+[ ← Regresar ](../README.md)
+
 # MCPServer — Práctica 1
 
 Servidor MCP de solo lectura para exponer al agente conversacional los resultados del análisis de ventas online de 2021.
