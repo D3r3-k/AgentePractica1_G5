@@ -37,57 +37,17 @@ Pero para efectos de decidir qué hacer mañana, la distinción casi no importa.
 
 ## Conclusión Clave 4: La empresa se cree digital, pero dos de cada tres ventas necesitan que alguien esté ahí en persona
 
-El enunciado describe a la empresa como un negocio que nació vendiendo en línea y que
-apenas está dando el salto a una sucursal física. Los datos de 2021 dicen otra cosa. De las
-6,500 transacciones del año, 3,523 quedaron registradas en tienda física: el 54.2%. El canal
-que todavía se trata como el proyecto nuevo ya carga con más de la mitad de la operación,
-y lleva haciéndolo un año completo.
+Aunque la empresa nació con un enfoque de ventas en línea y la tienda física se plantea como una expansión más reciente, los datos de 2021 muestran que la operación ya depende bastante del componente presencial. De las 6,500 transacciones registradas durante el año, 3,523 se realizaron en tienda física, lo que representa el 54.2% del total. Es decir, más de la mitad de las ventas ya pasan directamente por la sucursal.
 
-El segundo dato viene del dinero. Durante 2021 hubo 1,207 ventas pagadas contra entrega o en
-efectivo, el 18.6% del total, mientras que la tarjeta de crédito se llevó el 58.9% y la de
-débito el 22.6%. Casi una de cada cinco transacciones del año se cerró con billetes de por
-medio.
+El método de pago nos confirma esta idea ya que durante el año se registraron 1,207 ventas en efectivo o contra entrega, equivalentes al 18.6% de todas las transacciones. Al cruzar este dato con el canal de venta encontramos algo todavía más interesante y es que 574 corresponden a ventas realizadas en tienda, pero 633 fueron ventas originadas desde la web. Si asumimos que estas últimas corresponden a pagos contra entrega, entonces una parte importante de las compras digitales también termina necesitando una interacción física con el cliente.
 
-Al cruzar ese pago con el canal de origen la cifra se vuelve más interesante. De esas 1,207
-ventas en efectivo, 574 salieron de la tienda física y las otras 633 entraron por un navegador.
-Un cobro en efectivo que nace en internet no se liquida en el mostrador, se liquida en la
-puerta del cliente, así que ese medio millar largo de transacciones representa reparto con
-cobro en mano. El dato estaba ahí desde el principio, solo que repartido entre dos columnas
-que nadie había cruzado.
+Bajo ese supuesto, al sumar las 3,523 ventas realizadas directamente en tienda con las 633 ventas web pagadas en efectivo, obtenemos 4,156 transacciones, aproximadamente el 63.9% del total anual, que involucraron algún tipo de entrega o cobro presencial. Esto cambia un poco la forma de ver el negocio: la página web sigue siendo importante, pero también lo son la atención en tienda, el reparto y el manejo de efectivo. Por eso, cualquier estrategia de crecimiento debería considerar ambos lados y no tratar la operación física como algo secundario.
 
-Sumadas las dos cosas —las 3,523 ventas de mostrador más las 633 contra entrega— salen 4,156
-transacciones que exigen que una persona entregue producto o reciba dinero físicamente. Es el
-63.9% del año. La infraestructura que sostiene a este negocio no es el carrito de compras: es
-el mostrador, la ruta de reparto y el manejo de efectivo. Cualquier plan que se arme
-asumiendo que el crecimiento pasa por optimizar la web va a estar apuntando al tercio
-equivocado del negocio.
+También llama la atención que las ventas se mantuvieron bastante estables durante el año. El volumen mensual estuvo entre 493 y 577 transacciones, sin cambios demasiado bruscos. Sin embargo, noviembre fue el mes más bajo y diciembre el más alto, con una diferencia de 84 ventas. Es un comportamiento interesante, sobre todo porque ocurre justo al final del año, aunque con información de un solo período no sería correcto afirmar todavía que existe una tendencia estacional.
 
-La otra mitad del hallazgo está en el calendario. Las ventas mensuales son sorprendentemente
-parejas: el año se mueve entre 493 y 577 transacciones por mes, es decir, entre un 9% por
-debajo y un 6.5% por encima del promedio de 542. No hay temporadas fuertes ni temporadas
-muertas, hay un negocio de goteo constante. Con una excepción incómoda: noviembre es el peor mes del año con 493 ventas, justo
-antes de que diciembre cierre como el mejor con 577. Diciembre vende 84 transacciones más que
-noviembre, un 17% arriba, y esos dos meses consecutivos concentran el máximo y el mínimo de
-los doce. Para un comercio que ya opera tienda física, noviembre debería ser el mes de
-arranque de la temporada alta, no el hoyo del año.
+En cuanto a las acciones comerciales, los boletines y los vales tampoco muestran una relación clara entre sí. Su correlación mensual fue de apenas -0.077, prácticamente nula, y los meses con mayor actividad de una herramienta no necesariamente coinciden con los de la otra. Además, noviembre tuvo una cobertura relativamente alta de boletines y aun así terminó siendo el mes con menos ventas. Esto sugiere que las acciones promocionales podrían estar funcionando de manera poco coordinada o que existen otros factores que los datos actuales no permiten observar.
 
-El calendario comercial tampoco acompaña. Los boletines se disparan en diciembre (262 ventas
-asociadas, el máximo anual) pero los vales alcanzan su pico en marzo, con 133. La correlación
-entre ambas series mensuales es de -0.077, es decir, prácticamente nula: los dos instrumentos
-se mueven cada uno por su lado. Septiembre lo resume bien, porque registra la tasa más baja de
-boletines del año (39.4%) y al mismo tiempo la más alta de vales (23.6%); octubre hace lo
-contrario, con buena cobertura de boletín (46.2%) y el mínimo anual de vales, apenas 85 ventas
-y un 15.1%. Nadie parece estar coordinando ambas palancas, y noviembre —el mes flojo— tiene una
-de las tasas de boletín más altas del año (47.3%) sin que eso se traduzca en ventas. El esfuerzo
-comercial está llegando, pero llegando descoordinado.
+Finalmente, hay que tomar estos resultados con cuidado ya que el dataset permite saber por dónde entró una venta y cómo se pagó, pero no explica por qué ocurrió, cuánto costó atender cada canal ni qué campañas estaban activas. También estamos suponiendo que una venta web pagada en efectivo corresponde a un cobro contra entrega, algo razonable pero que el dataset no confirma directamente.
 
-Hay que ser honestos con el alcance de todo esto. El conjunto de datos registra qué se pagó y
-por dónde entró la venta, pero no registra el porqué: no hay campañas, ni costos por canal, ni
-motivo de la caída de noviembre. La separación entre efectivo de mostrador y cobro en la puerta
-descansa en un supuesto razonable pero supuesto al fin, que es que el efectivo no se cobra a
-distancia; el total de 1,207 ventas, en cambio, sale directo del campo MetodoPago y no admite
-discusión. El patrón mensual corresponde además a un solo año, así que llamarlo estacionalidad
-sería exagerado mientras no tengamos 2020 o 2022 para comparar. Lo que sí queda firme, porque
-no depende de ninguna interpretación, es el reparto: más de la mitad de las ventas ocurrieron
-presencialmente, casi una de cada cinco se pagó en efectivo, y el año fue plano con un bache
-justo en noviembre.
+Aun con esas limitaciones, el hallazgo principal es bastante claro: la operación de la empresa durante 2021 fue mucho más física de lo que su origen digital podría hacer pensar. Más de la mitad de las ventas ocurrieron directamente en tienda y, considerando las ventas web pagadas en efectivo, cerca de dos tercios de las transacciones tuvieron algún componente presencial. Más que pensar en lo digital y lo físico como dos negocios separados, los datos muestran que ambos canales ya están bastante conectados.
+
