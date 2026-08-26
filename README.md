@@ -38,14 +38,10 @@ El detalle de tareas por integrante está en [`docs/01-planificacion.md`](docs/0
 - [Recomendaciones](docs/05-recomendaciones.md)
 - [Respuestas](docs/06-respuestas.md)
 - [Diagrama de BD](docs/07-diagrama-bd.md)
-- Validación del agente — `docs/08-validacion-agente.md` *(pendiente de subir)*
-- Aportes del integrante 3 — `docs/09-aportes-integrante3.md` *(pendiente de subir)*
-- Implementación del agente — `docs/10-implementacion-agente.md` *(pendiente de subir)*
 - [Segmentación y correlación](docs/11-segmentacion-correlacion.md)
 - [Análisis exploratorio y de tendencias](docs/12-exploratorio-tendencias.md)
 - [MCPServer](mcp_server/README.md)
 - [Agente conversacional](agente_adk/README.md)
-- [**Pendientes para cerrar la entrega**](PENDIENTES.md)
 
 ---
 
