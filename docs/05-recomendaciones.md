@@ -2,6 +2,24 @@
 
 # recomendaciones
 
+## Dos acciones concretas Clave #1
+
+**Acción 1** — Dejar de medir el ticket y empezar a medir cada cuánto vuelve el cliente
+
+Hoy el negocio se mide por cuánto se vendió y cuánto fue el ticket promedio. El problema es que el ticket promedio de esta empresa es prácticamente una constante: Q39.02, Q39.86, Q40.32 y Q40.55 según el grupo de clientes que se mire. Es un número que no se mueve y que, por lo tanto, no sirve para detectar si algo está pasando. Mientras tanto, la variable que sí explica el resultado —cuántas veces compra cada cliente— no se está siguiendo en ningún reporte.
+
+La propuesta es agregar un solo indicador al corte mensual que ya se genera: el promedio de compras por cliente, que en 2021 fue de 5.09, junto con el porcentaje de clientes que compraron una o dos veces, que fue el 30.3%. Ambos salen directo de la base con la información que ya está cargada, no requieren capturar ningún dato nuevo ni contratar nada. La regla sería sencilla: si el porcentaje de clientes de una o dos compras sube por encima del 30.3%, hay una fuga de frecuencia que el reporte de ventas no va a mostrar hasta mucho después, porque el total del mes puede seguir viéndose bien mientras la base de clientes se hace menos fiel.
+
+Junto con esto conviene corregir cómo se presenta el dato. Como cada registro es el resumen anual de un cliente con una sola fecha, hablar de «6,500 ventas en 2021» es incorrecto: fueron 6,500 clientes y 33,085 compras. Es un ajuste de redacción, pero evita que alguien tome una decisión de inventario o de personal creyendo que el volumen de operaciones es cinco veces menor de lo que realmente fue.
+
+**Acción 2** — Atacar al grupo de una o dos compras con una prueba acotada de recompra
+
+Hay 1,969 clientes que compraron una o dos veces en todo el año. Son el 30.3% de la base y aportan solo el 9.1% de la facturación, con un gasto anual promedio de Q62.21. El grupo que les sigue, el de tres a cinco compras, promedia Q155.68. La diferencia entre ambos no está en que gasten más por vez —ahí se llevan Q0.84 de diferencia— sino en que vuelven más veces. Ese es el espacio donde hay dinero sobre la mesa.
+
+La propuesta es una prueba de tres meses sobre ese grupo, dividiéndolo al azar en dos mitades. A una se le manda un recordatorio de recompra a las pocas semanas de su última compra, con la suscripción al boletín como incentivo, que es el único mecanismo que en estos datos aparece asociado a más frecuencia (los suscritos compran 1.18 veces más al año). A la otra mitad no se le manda nada. Al cierre se compara cuántas compras hizo cada grupo. Se usa el correo que la empresa ya tiene, así que el costo es el tiempo de armar el envío.
+
+La meta es que el grupo que recibió el recordatorio llegue a un promedio de tres compras en el trimestre. Si la mitad de esos 1,969 clientes lograra pasar al comportamiento del grupo de tres a cinco compras, serían alrededor de Q92,000 anuales adicionales, cerca del 7% de la facturación, sin conseguir un cliente nuevo. Y si la prueba no muestra diferencia entre las dos mitades, el aprendizaje también sirve: significaría que esos clientes compran poco porque no necesitan el producto más seguido, y entonces el presupuesto debería irse a captar clientes nuevos en lugar de insistir con los que ya están. En cualquiera de los dos casos la empresa termina el trimestre sabiendo algo que hoy no sabe.
+
 ## Dos acciones concretas Clave #2
 
 **Acción 1** — Convertir la revisión semanal en una alarma, no en un reporte que llega tarde
