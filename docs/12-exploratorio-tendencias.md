@@ -3,7 +3,7 @@
 # Análisis exploratorio y de tendencias
 
 Bloque correspondiente a los puntos **2** y **3** del alcance de la práctica, y a
-cinco de las nueve visualizaciones del punto **6**.
+siete de las doce visualizaciones del punto **6**.
 
 Todas las cifras proceden de consultas SQL ejecutadas contra la base PostgreSQL en la
 nube y se reproducen por completo ejecutando:
@@ -48,6 +48,8 @@ facturado de **Q1,340,575.80**.
 | `monto_compra` | 39.79 | 35.77 | 28.32 |
 | `tiempo` | 767.38 | 768.00 | 852.00 |
 
+![Distribución del total de la venta](../graficas/10-distribucion-venta.png)
+
 Tres lecturas importan más que el resto.
 
 **La distribución del gasto está fuertemente sesgada a la derecha.** La media de
@@ -59,6 +61,19 @@ Q206» describe mal a la venta típica del negocio. Cada vez que en este informe
 compara un ticket promedio entre dos grupos, conviene recordar que se está comparando
 una media sobre una distribución asimétrica; por eso en el bloque de segmentación se
 reportan también las medianas.
+
+El histograma pone cifra a esa asimetría. **4,315 ventas —el 66.4 % del año— quedan
+por debajo de la media**, de modo que el «promedio» es un valor que dos de cada tres
+transacciones no alcanzan. La clase más frecuente es la de Q50 a Q100, con 1,442
+ventas, muy por debajo de la media, y a partir de ahí las frecuencias descienden de
+forma sostenida sin volver a repuntar. Las 161 ventas de Q800 o más, agrupadas en la
+última clase del gráfico, representan apenas el 2.5 % de las transacciones y son las
+que arrastran el promedio hacia arriba.
+
+De aquí se desprende una recomendación de lectura para el resto del informe: cuando se
+requiera un valor que represente a la venta corriente conviene mirar la mediana, y
+reservar la media para los cálculos de facturación total, donde sí corresponde
+ponderar por monto.
 
 **La edad se reparte de forma amplia y centrada.** Media de 36.31 años y mediana de
 36.00 prácticamente coinciden, señal de una distribución simétrica sin sesgo. La moda
@@ -267,6 +282,20 @@ en cambio, se deduce del canal de origen y descansa en el supuesto de que el efe
 no se cobra a distancia: es razonable y difícil de sostener de otro modo, pero sigue
 siendo un supuesto. El peso que esta cifra tiene sobre la estructura operativa del
 negocio se desarrolla en la conclusión clave 4.
+
+![Composición del 63.9 % presencial](../graficas/12-cascada-presencial.png)
+
+El gráfico de cascada muestra la aritmética completa de ese hallazgo, que de otro modo
+habría que aceptar como un total ya calculado. A las 3,523 ventas de tienda física se
+suman las 633 en línea cobradas en la entrega, y ambas conforman **4,156 transacciones
+—el 63.9 % del año— que requieren que alguien entregue el producto o reciba el dinero
+en persona**. El remanente, 2,344 ventas pagadas con tarjeta desde un navegador, es el
+36.1 % que se resuelve por completo sin intervención presencial.
+
+La descomposición deja a la vista algo que el porcentaje agregado esconde: de esas
+4,156 transacciones, 3,523 son dato directo del campo de canal y solo 633 dependen del
+supuesto descrito arriba. Aun descartando por completo el componente inferido, la
+tienda física por sí sola ya supera la mitad del año.
 
 ### 3.d Meses con mayor uso de boletines y vales
 

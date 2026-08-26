@@ -3,7 +3,7 @@
 # Segmentación de clientes y análisis de correlación
 
 Bloque correspondiente a los puntos **4** y **5** del alcance de la práctica, y a
-cuatro de las nueve visualizaciones del punto **6**.
+cinco de las doce visualizaciones del punto **6**.
 
 Todas las cifras de este documento proceden de consultas SQL ejecutadas contra la
 base PostgreSQL en la nube y se reproducen por completo ejecutando:
@@ -89,6 +89,27 @@ Los tramos 26-35 y 36-45 concentran juntos el 59.8 % de los clientes y casi la
 misma proporción de la facturación. La empresa no tiene un problema de captación
 etaria: tiene una base concentrada en adultos de 26 a 45 años que se comportan de
 forma prácticamente idéntica.
+
+**La objeción que el promedio no puede responder.** Comparar medias invita a una
+réplica legítima: dos segmentos con el mismo promedio pueden esconder distribuciones
+muy distintas, y un ticket medio parecido podría convivir con clientes internamente
+muy diferentes. El diagrama de caja responde a eso mostrando la distribución completa
+de cada tramo, no solo su centro.
+
+![Distribución del total de la venta por rango de edad](../graficas/11-caja-edad.png)
+
+Las cinco cajas se solapan casi por completo. Los primeros cuartiles caben entre
+Q61.25 y Q74.78, los terceros entre Q255.90 y Q272.20, y las medianas entre Q123.75 y
+Q145.30: **Q21.55 separan a la mediana más alta de la más baja**, sobre una variable
+cuyo recorrido llega a Q3,169. No solo los promedios se parecen, sino que la mitad
+central de cada segmento ocupa prácticamente el mismo tramo de la escala.
+
+Vale notar que el orden de las medianas reproduce el de las medias —26-35 arriba, 56+
+abajo— lo que descarta que la tendencia descendente fuera un artefacto de los valores
+atípicos. La dirección es consistente; lo que el gráfico demuestra es que su magnitud
+es irrelevante frente a la dispersión interna de cada grupo. Dicho de otro modo, saber
+en qué tramo etario cae un cliente reduce muy poco la incertidumbre sobre lo que va a
+gastar, que es exactamente lo que el coeficiente del punto 5.a cuantifica.
 
 ### 4.b Comportamiento de compra entre géneros
 
