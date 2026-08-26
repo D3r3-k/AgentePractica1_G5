@@ -2,6 +2,16 @@
 
 # Conclusiones
 
+## Conclusión Clave 1: Lo que decide cuánto deja un cliente no es cuánto gasta cada vez, sino cuántas veces vuelve
+
+Al preparar los datos encontramos algo que conviene aclarar antes de cualquier otra lectura: los 6,500 registros del año no son 6,500 compras, son 6,500 clientes. Cada fila resume el año completo de una persona, y al sumar la columna de número de compras aparecen 33,085 compras reales durante 2021. La cuenta cierra sola: los Q1,340,575.80 facturados divididos entre esas 33,085 compras dan Q40.52, casi idéntico al promedio de Q39.79 de la columna de monto por compra.
+
+Con esa aclaración encima, el hallazgo aparece al separar el gasto anual en sus dos partes. Un cliente deja más dinero porque gasta más en cada compra o porque compra más veces, y los datos son claros sobre cuál manda. Agrupando por cuántas veces compraron, el monto de cada compra casi no se mueve: Q39.02, Q39.86, Q40.32 y Q40.55. Son Q1.53 de diferencia entre el grupo que menos compra y el que más. Lo que sí cambia es la frecuencia, y con ella el gasto anual: de Q62.21 a Q572.08, nueve veces más.
+
+Ese monto de unos Q40 es parejo en todo el negocio. No cambia con el método de pago, ni con la edad, ni con el navegador, ni con el boletín. En la práctica todos los clientes compran por el mismo monto y lo único que los distingue es cada cuánto vuelven: la cantidad de compras explica el 54% de las diferencias de gasto anual y el monto por compra apenas el 23%. Esto explica además lo que el equipo ya había visto por otro lado: de los Q54.47 que gastan de más los suscritos al boletín, unos Q45.82 vienen de comprar más seguido y solo Q8.72 de gastar más por vez.
+
+La consecuencia va en contra de lo que suele intentarse primero. Subir el ticket con combos o montos mínimos apunta a una variable congelada en Q40. Mover la frecuencia sí tiene recorrido: 1,969 clientes, el 30.3% de la base, compraron una o dos veces y aportan el 9.1% de la facturación; si la mitad llegara al comportamiento del grupo siguiente serían unos Q92,000 más al año, cerca del 7%, sin un solo cliente nuevo. Lo que los datos no explican es por qué unos vuelven y otros no: no hay producto, ni costo, ni más de una fecha por cliente. Pero sí dicen con claridad qué número hay que vigilar cada mes.
+
 ## Conclusión Clave 2: El MCPServer hace que la empresa deje de adivinar
 
 El MCPServer nos ayuda entender algo imporntate, donde la respuesta deja de depender de que una sola persona abra la base, recuerde una consulta y explique el resultado. El servidor convierte ese análisis en una capacidad que todo el equipo puede utilizar de la misma manera: conecta el agente con la base de datos y expone doce herramientas para consultar estadísticas, tendencias, segmentaciones y correlaciones.
